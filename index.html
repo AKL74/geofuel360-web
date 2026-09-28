@@ -1,6 +1,6 @@
 <!doctype html>
-<!-- GEOFUEL360_STATIC_R6M -->
-<!-- GEOFUEL360_STATIC_R6M --><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><title>GeoFuel360</title><style>
+<!-- GEOFUEL360_STATIC_R6N -->
+<!-- GEOFUEL360_STATIC_R6N --><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><title>GeoFuel360</title><style>
 :root{--bg:#07111f;--panel:#101d30;--line:#29415f;--text:#f5f7fb;--muted:#9dbbe0;--mint:#83ddb8;--danger:#ff9fa8}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111f,#081524);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select{font:inherit}.hidden{display:none!important}.wrap{max-width:1180px;margin:auto;padding:18px}header{position:sticky;top:0;z-index:10;background:#07111ff0;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.head{max-width:1180px;margin:auto;padding:12px 18px;display:flex;gap:12px;align-items:center}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#82dec0,#79a7ff);display:grid;place-items:center;color:#082033;font-weight:900}.brand{font-weight:900;font-size:22px}.sub{font-size:12px;color:var(--muted)}.grow{flex:1}.badge{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--muted)}.hero,.card{background:linear-gradient(135deg,#122135,#0e1a2b);border:1px solid var(--line);border-radius:22px;padding:22px;margin:16px 0}.hero h1{margin:0 0 8px;font-size:31px}.hero p{margin:0;color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab{border:1px solid var(--line);background:#0d1828;color:var(--muted);border-radius:999px;padding:10px 16px;cursor:pointer}.tab.on,.primary{background:var(--mint);color:#092014;border-color:transparent}.grid{display:grid;grid-template-columns:1fr 300px;gap:16px}.formgrid{display:grid;grid-template-columns:1.1fr 1.3fr 1.1fr 1fr;gap:12px}.wide{grid-column:1/-1}label{display:block;font-size:12px;font-weight:800;color:#a9c7ef;margin-bottom:6px;text-transform:uppercase}.field{width:100%;background:#0b1726;border:1px solid var(--line);color:var(--text);border-radius:13px;padding:13px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}button{border:1px solid var(--line);background:#203657;color:#fff;border-radius:13px;padding:12px 17px;font-weight:800;cursor:pointer}.primary{background:var(--mint);color:#092014}.danger{background:#4a2530;color:#ffd7dc}.small{padding:8px 11px;font-size:13px}.status{color:var(--muted);font-size:13px;margin-top:10px}.err{background:#3b2837;border:1px solid #805066;color:#ffdbe2;padding:12px;border-radius:12px;margin-top:10px}.results{display:grid;gap:12px}.result{background:#0f1c2e;border:1px solid var(--line);border-radius:18px;padding:17px;display:grid;grid-template-columns:1fr auto;gap:12px}.rname{font-size:17px;font-weight:900}.addr{color:#9fc2ec;font-size:13px;margin:4px 0}.price{font-size:20px;font-weight:900;color:var(--mint);text-align:right}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.chip{border:1px solid var(--line);border-radius:999px;padding:5px 8px;font-size:11px;color:#bdd4f2}.summary{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.metric{background:#0b1726;border:1px solid var(--line);border-radius:15px;padding:14px}.metric b{font-size:20px}.loginShell{min-height:100vh;display:grid;place-items:center;padding:24px}.login{width:min(440px,100%);background:#101d30;border:1px solid var(--line);border-radius:24px;padding:28px}.login h1{margin:16px 0 4px}.login .field{margin:6px 0 14px}table{width:100%;border-collapse:collapse}td,th{padding:10px;border-bottom:1px solid var(--line);text-align:left}.notice{padding:12px;border-radius:12px;background:#13263c;color:#b9d4f6;margin:10px 0}@media(max-width:800px){.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr 1fr}.hero h1{font-size:26px}.summary{grid-template-columns:repeat(3,1fr)}}@media(max-width:520px){.wrap{padding:12px}.formgrid{grid-template-columns:1fr}.result{grid-template-columns:1fr}.price{text-align:left}.summary{grid-template-columns:1fr 1fr}.badge{display:none}}
 
 /* ===== GeoFuel360 R6M UI PRO ===== */
@@ -89,6 +89,7 @@ body.compactMode .operatorHero{font-size:18px}
   <button id="clearBtn" type="button">Limpiar</button>
 </div><div id="searchStatus" class="status"></div><div id="searchErr" class="err hidden"></div></div><aside class="card"><h2>Resumen</h2><div id="summary" class="summary"></div></aside></div><div id="results" class="results"></div></section>
 <section id="favoritesSec" class="hidden"><div class="card"><h2>Favoritos</h2><div id="favorites"></div></div></section><section id="systemSec" class="hidden"><div class="card"><h2>Estado cloud</h2><div id="system"></div><div class="actions"><button id="changePass">Cambiar mi clave</button></div></div></section><section id="usersSec" class="hidden"><div class="card"><h2>Usuarios y accesos</h2><div class="formgrid"><div><label>Usuario nuevo</label><input id="newUser" class="field"></div><div><label>Rol</label><select id="newRole" class="field"><option>USUARIO</option><option>AUDITOR</option><option>ADMIN</option></select></div><div><label>Clave inicial</label><input id="newPass" class="field" placeholder="Vacío = automática"></div><div class="actions"><button id="createUser" class="primary">Crear</button></div></div><div id="usersTable"></div></div></section><section id="auditSec" class="hidden"><div class="card"><h2>Auditoría</h2><div id="auditTable"></div></div></section></main></div>
+<button id="backTop" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
 <script>
 const $=id=>document.getElementById(id);
 const API_BASE='https://jgduzamieitiajltrihc.supabase.co/functions/v1/geofuel360';
@@ -679,33 +680,46 @@ function applyDensity(compact,save=true){
   if($('densityToggle'))$('densityToggle').textContent=gfCompact?'Cómoda':'Compacta';
   if(save)localStorage.setItem(GF_DENSITY_KEY,gfCompact?'compact':'comfortable');
 }
+function bindIf(id,event,handler){
+  const el=$(id);
+  if(!el)return false;
+  el.addEventListener(event,handler);
+  return true;
+}
 function initUiControls(){
   applyUiZoom(gfZoom,false);
   applyDensity(gfCompact,false);
-  $('zoomOut').addEventListener('click',()=>applyUiZoom(gfZoom-10));
-  $('zoomIn').addEventListener('click',()=>applyUiZoom(gfZoom+10));
-  $('zoomReset').addEventListener('click',()=>applyUiZoom(100));
-  $('densityToggle').addEventListener('click',()=>applyDensity(!gfCompact));
-  $('clearBtn').addEventListener('click',()=>{
-    $('freeText').value='';
-    $('minPower').value='0';
+
+  bindIf('zoomOut','click',()=>applyUiZoom(gfZoom-10));
+  bindIf('zoomIn','click',()=>applyUiZoom(gfZoom+10));
+  bindIf('zoomReset','click',()=>applyUiZoom(100));
+  bindIf('densityToggle','click',()=>applyDensity(!gfCompact));
+
+  bindIf('clearBtn','click',()=>{
+    if($('freeText'))$('freeText').value='';
+    if($('minPower'))$('minPower').value='0';
     geo=null;
     current=[];
     displayRows=[];
-    $('results').innerHTML='';
-    $('summary').innerHTML='';
-    $('searchErr').classList.add('hidden');
-    $('searchStatus').textContent='Filtros secundarios limpiados.';
+    if($('results'))$('results').innerHTML='';
+    if($('summary'))$('summary').innerHTML='';
+    if($('searchErr'))$('searchErr').classList.add('hidden');
+    if($('searchStatus'))$('searchStatus').textContent='Filtros secundarios limpiados.';
   });
+
   ['municipality','freeText'].forEach(id=>{
-    $(id).addEventListener('keydown',e=>{
+    bindIf(id,'keydown',e=>{
       if(e.key==='Enter'){e.preventDefault();runSearch();}
     });
   });
-  $('backTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  bindIf('backTop','click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
   window.addEventListener('scroll',()=>{
-    $('backTop').style.display=window.scrollY>500?'grid':'none';
+    const b=$('backTop');
+    if(b)b.style.display=window.scrollY>500?'grid':'none';
   },{passive:true});
+
   document.addEventListener('keydown',e=>{
     if(!e.altKey)return;
     if(e.key==='+'||e.key==='='){e.preventDefault();applyUiZoom(gfZoom+10);}
@@ -722,7 +736,7 @@ function wire(){
 
   $('loginBtn').type='button';
   $('loginBtn').addEventListener('click',doLogin);
-  $('loginBtn').dataset.handler='R6M';
+  $('loginBtn').dataset.handler='R6N';
   $('loginUser').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
   $('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
   $('logout').addEventListener('click',doLogout);
@@ -778,7 +792,11 @@ function wire(){
     }catch(e){alert(e.message)}
   });
 
-  document.documentElement.dataset.gfJsReady='R6M';
+  document.documentElement.dataset.gfJsReady='R6N';
+  document.querySelectorAll('#modeTabs .tab,#sectionTabs .tab').forEach(x=>x.dataset.gfBound='R6N');
+  ['searchBtn','geoBtn','clearBtn','logout','changePass'].forEach(id=>{
+    const el=$(id);if(el)el.dataset.gfBound='R6N';
+  });
 }
 
 window.addEventListener('error',e=>{
@@ -789,8 +807,21 @@ window.addEventListener('unhandledrejection',e=>{
   setLoginMsg('Error: '+m,true);
 });
 
-wire();
-boot();
+function startGeoFuel(){
+  try{
+    wire();
+    boot();
+    document.documentElement.dataset.gfStartup='R6N_OK';
+  }catch(e){
+    console.error('GeoFuel360 startup error',e);
+    document.documentElement.dataset.gfStartup='R6N_ERROR';
+    setLoginMsg('Error de interfaz: '+(e&&e.message?e.message:String(e)),true);
+  }
+}
+if(document.readyState==='loading'){
+  document.addEventListener('DOMContentLoaded',startGeoFuel,{once:true});
+}else{
+  startGeoFuel();
+}
 
-</script><button id="backTop" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
-</body></html>
+</script></body></html>
