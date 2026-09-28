@@ -1,11 +1,93 @@
 <!doctype html>
-<!-- GEOFUEL360_STATIC_R6L -->
-<!-- GEOFUEL360_STATIC_R6L --><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><title>GeoFuel360</title><style>
+<!-- GEOFUEL360_STATIC_R6M -->
+<!-- GEOFUEL360_STATIC_R6M --><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><title>GeoFuel360</title><style>
 :root{--bg:#07111f;--panel:#101d30;--line:#29415f;--text:#f5f7fb;--muted:#9dbbe0;--mint:#83ddb8;--danger:#ff9fa8}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111f,#081524);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select{font:inherit}.hidden{display:none!important}.wrap{max-width:1180px;margin:auto;padding:18px}header{position:sticky;top:0;z-index:10;background:#07111ff0;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.head{max-width:1180px;margin:auto;padding:12px 18px;display:flex;gap:12px;align-items:center}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#82dec0,#79a7ff);display:grid;place-items:center;color:#082033;font-weight:900}.brand{font-weight:900;font-size:22px}.sub{font-size:12px;color:var(--muted)}.grow{flex:1}.badge{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--muted)}.hero,.card{background:linear-gradient(135deg,#122135,#0e1a2b);border:1px solid var(--line);border-radius:22px;padding:22px;margin:16px 0}.hero h1{margin:0 0 8px;font-size:31px}.hero p{margin:0;color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab{border:1px solid var(--line);background:#0d1828;color:var(--muted);border-radius:999px;padding:10px 16px;cursor:pointer}.tab.on,.primary{background:var(--mint);color:#092014;border-color:transparent}.grid{display:grid;grid-template-columns:1fr 300px;gap:16px}.formgrid{display:grid;grid-template-columns:1.1fr 1.3fr 1.1fr 1fr;gap:12px}.wide{grid-column:1/-1}label{display:block;font-size:12px;font-weight:800;color:#a9c7ef;margin-bottom:6px;text-transform:uppercase}.field{width:100%;background:#0b1726;border:1px solid var(--line);color:var(--text);border-radius:13px;padding:13px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}button{border:1px solid var(--line);background:#203657;color:#fff;border-radius:13px;padding:12px 17px;font-weight:800;cursor:pointer}.primary{background:var(--mint);color:#092014}.danger{background:#4a2530;color:#ffd7dc}.small{padding:8px 11px;font-size:13px}.status{color:var(--muted);font-size:13px;margin-top:10px}.err{background:#3b2837;border:1px solid #805066;color:#ffdbe2;padding:12px;border-radius:12px;margin-top:10px}.results{display:grid;gap:12px}.result{background:#0f1c2e;border:1px solid var(--line);border-radius:18px;padding:17px;display:grid;grid-template-columns:1fr auto;gap:12px}.rname{font-size:17px;font-weight:900}.addr{color:#9fc2ec;font-size:13px;margin:4px 0}.price{font-size:20px;font-weight:900;color:var(--mint);text-align:right}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.chip{border:1px solid var(--line);border-radius:999px;padding:5px 8px;font-size:11px;color:#bdd4f2}.summary{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.metric{background:#0b1726;border:1px solid var(--line);border-radius:15px;padding:14px}.metric b{font-size:20px}.loginShell{min-height:100vh;display:grid;place-items:center;padding:24px}.login{width:min(440px,100%);background:#101d30;border:1px solid var(--line);border-radius:24px;padding:28px}.login h1{margin:16px 0 4px}.login .field{margin:6px 0 14px}table{width:100%;border-collapse:collapse}td,th{padding:10px;border-bottom:1px solid var(--line);text-align:left}.notice{padding:12px;border-radius:12px;background:#13263c;color:#b9d4f6;margin:10px 0}@media(max-width:800px){.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr 1fr}.hero h1{font-size:26px}.summary{grid-template-columns:repeat(3,1fr)}}@media(max-width:520px){.wrap{padding:12px}.formgrid{grid-template-columns:1fr}.result{grid-template-columns:1fr}.price{text-align:left}.summary{grid-template-columns:1fr 1fr}.badge{display:none}}
+
+/* ===== GeoFuel360 R6M UI PRO ===== */
+:root{
+  --gf-card:#0e1b2d;
+  --gf-card2:#0b1726;
+  --gf-soft:#162942;
+  --gf-accent:#82dec0;
+  --gf-blue:#9fc8ff;
+  --gf-warn:#ffd27a;
+  --gf-shadow:0 14px 35px rgba(0,0,0,.18);
+}
+body{transition:zoom .15s ease}
+.head{flex-wrap:wrap}
+.uiTools{display:flex;align-items:center;gap:6px;padding:5px;border:1px solid var(--line);border-radius:14px;background:#0b1726}
+.uiTools .toolLabel{font-size:11px;color:var(--muted);font-weight:800;text-transform:uppercase;margin:0 3px}
+.zoomBtn,.zoomPct,.densityBtn{padding:7px 10px;border-radius:9px;background:#132640;color:var(--text);border:1px solid #35547a}
+.zoomBtn{min-width:34px}
+.zoomPct{min-width:62px;color:var(--mint)}
+.densityBtn{white-space:nowrap}
+.card,.hero,.result{box-shadow:var(--gf-shadow)}
+.hero{background:linear-gradient(135deg,#122640,#0e1a2b)}
+.searchToolbar{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.resultListHeader{display:flex;justify-content:space-between;gap:12px;align-items:end;padding:2px 4px 8px}
+.resultListHeader h3{margin:0;font-size:18px}
+.resultListHeader .sub{max-width:760px;text-align:right}
+.result.proResult{grid-template-columns:minmax(0,1fr) minmax(180px,230px);align-items:stretch;overflow:hidden}
+.resultMain{min-width:0}
+.resultSide{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:12px;padding-left:14px;border-left:1px solid var(--line)}
+.eyebrow{font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);font-weight:900;margin-bottom:4px}
+.operatorHero{font-size:21px;line-height:1.15;font-weight:950;color:var(--mint);overflow-wrap:anywhere}
+.siteName{font-size:15px;line-height:1.25;font-weight:850;color:var(--text);margin-top:6px;overflow-wrap:anywhere}
+.locationLine{font-size:12px;color:var(--gf-blue);margin-top:6px;overflow-wrap:anywhere}
+.infoGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:12px}
+.infoBox{border:1px solid #284462;background:#0b1726;border-radius:12px;padding:9px 10px;min-width:0}
+.infoLabel{font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:900}
+.infoValue{font-size:12px;margin-top:3px;font-weight:800;color:var(--text);overflow-wrap:anywhere}
+.priceHero{font-size:22px;font-weight:950;color:var(--mint);text-align:right;line-height:1.05}
+.priceLabel{font-size:10px;color:var(--muted);text-transform:uppercase;font-weight:900;letter-spacing:.06em;text-align:right;margin-bottom:4px}
+.distanceHero{font-size:11px;color:var(--muted);text-align:right;margin-top:5px}
+.sourceLine{font-size:10px;color:var(--muted);margin-top:8px}
+.dataWarning{margin-top:9px;padding:8px 10px;border:1px solid #795f2b;background:#302a1d;border-radius:10px;color:#ffe4a4;font-size:11px}
+.resultActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.resultActions a{text-decoration:none}
+.statePill{display:inline-flex;align-items:center;gap:5px;border:1px solid #35547a;border-radius:999px;padding:5px 8px;font-size:10px;color:#cfe2ff}
+.statePill.good{border-color:#2d705b;color:#a9f0d4}
+.statePill.warn{border-color:#795f2b;color:#ffe4a4}
+.searchProgress{display:inline-flex;align-items:center;gap:7px}
+.searchProgress:before{content:"";width:10px;height:10px;border:2px solid #47698f;border-top-color:var(--mint);border-radius:50%;animation:gfspin .8s linear infinite}
+@keyframes gfspin{to{transform:rotate(360deg)}}
+#backTop{position:fixed;right:18px;bottom:18px;z-index:20;width:44px;height:44px;border-radius:50%;display:none;place-items:center;padding:0;font-size:20px;background:#17304e}
+body.compactMode .card,body.compactMode .hero{padding:16px}
+body.compactMode .result{padding:12px}
+body.compactMode .infoBox{padding:7px 8px}
+body.compactMode .results{gap:8px}
+body.compactMode .operatorHero{font-size:18px}
+@media(max-width:980px){
+  .result.proResult{grid-template-columns:1fr}
+  .resultSide{border-left:0;border-top:1px solid var(--line);padding:12px 0 0;align-items:flex-start}
+  .priceHero,.priceLabel,.distanceHero{text-align:left}
+  .infoGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .uiTools{order:10;width:100%;justify-content:flex-end}
+}
+@media(max-width:620px){
+  .infoGrid{grid-template-columns:1fr}
+  .resultListHeader{align-items:flex-start;flex-direction:column}
+  .resultListHeader .sub{text-align:left}
+  .uiTools{justify-content:center}
+  .densityBtn{display:none}
+}
+
 </style></head><body>
 <div id="loginView" class="loginShell"><div class="login"><div class="logo">GF</div><h1>GeoFuel360</h1><p class="sub">Cloud R6 · Supabase + GitHub Pages · acceso privado desde cualquier dispositivo</p><label>Usuario</label><input id="loginUser" class="field" autocomplete="username"><label>Clave</label><input id="loginPass" class="field" type="password" autocomplete="current-password"><button id="loginBtn" class="primary">Entrar</button><div id="loginMsg" class="status"></div></div></div>
-<div id="appView" class="hidden"><header><div class="head"><div class="logo">GF</div><div><div class="brand">GeoFuel360</div><div class="sub">Supabase R6 · carburantes + recarga eléctrica</div></div><div class="grow"></div><span id="who" class="badge"></span><button id="logout" class="small">Salir</button></div></header><main class="wrap"><section class="hero"><h1>Precio, distancia y energía. En segundos.</h1><p>Acceso desde cualquier dispositivo. Usuarios y claves gestionados por tu ADMIN.</p></section><div class="tabs" id="modeTabs"><button class="tab on" data-mode="fuel">Carburantes</button><button class="tab" data-mode="electric">Recarga eléctrica</button></div><div class="tabs" id="sectionTabs"><button class="tab on" data-section="search">Buscar</button><button class="tab" data-section="favorites">Favoritos</button><button class="tab" data-section="system">Sistema</button><button class="tab adminOnly hidden" data-section="users">Usuarios</button><button class="tab auditOnly hidden" data-section="audit">Auditoría</button></div>
-<section id="searchSec"><div class="grid"><div class="card"><h2 id="searchTitle">Buscar estaciones de servicio</h2><div class="formgrid"><div><label>1. Provincia</label><select id="province" class="field"></select></div><div><label>2. Municipio</label><input id="municipality" class="field" list="municipalityList" placeholder="Empieza a escribir..."><datalist id="municipalityList"></datalist></div><div id="fuelBox"><label>Combustible</label><select id="fuel" class="field"><option value="diesel">Gasóleo A</option><option value="gasolina95">Gasolina 95 E5</option><option value="gasolina98">Gasolina 98 E5</option><option value="diesel_plus">Gasóleo Premium</option><option value="glp">GLP</option><option value="gnc">GNC</option></select></div><div id="powerBox" class="hidden"><label>Potencia mínima</label><select id="minPower" class="field"><option value="0">Todas</option><option value="22">22 kW</option><option value="50">50 kW</option><option value="100">100 kW</option><option value="150">150 kW</option></select></div><div><label>Orden</label><select id="order" class="field"><option value="price">Precio · menor a mayor</option></select></div><div class="wide"><label id="freeLabel">Marca o dirección (opcional)</label><input id="freeText" class="field" placeholder="Ej. Repsol, Avenida..."></div></div><div class="actions"><button id="searchBtn" class="primary">Buscar</button><button id="geoBtn">Usar mi ubicación</button></div><div id="searchStatus" class="status"></div><div id="searchErr" class="err hidden"></div></div><aside class="card"><h2>Resumen</h2><div id="summary" class="summary"></div></aside></div><div id="results" class="results"></div></section>
+<div id="appView" class="hidden"><header><div class="head"><div class="logo">GF</div><div><div class="brand">GeoFuel360</div><div class="sub">Supabase R6 · carburantes + recarga eléctrica</div></div><div class="grow"></div>
+<div id="uiControls" class="uiTools" aria-label="Controles de visualización">
+  <span class="toolLabel">Vista</span>
+  <button id="zoomOut" class="zoomBtn small" type="button" title="Reducir interfaz">−</button>
+  <button id="zoomReset" class="zoomPct small" type="button" title="Volver a 100%">100%</button>
+  <button id="zoomIn" class="zoomBtn small" type="button" title="Aumentar interfaz">+</button>
+  <button id="densityToggle" class="densityBtn small" type="button" title="Cambiar densidad">Compacta</button>
+</div>
+<span id="who" class="badge"></span><button id="logout" class="small">Salir</button></div></header><main class="wrap"><section class="hero"><h1>Precio, distancia y energía. En segundos.</h1><p>Acceso desde cualquier dispositivo. Usuarios y claves gestionados por tu ADMIN.</p></section><div class="tabs" id="modeTabs"><button class="tab on" data-mode="fuel">Carburantes</button><button class="tab" data-mode="electric">Recarga eléctrica</button></div><div class="tabs" id="sectionTabs"><button class="tab on" data-section="search">Buscar</button><button class="tab" data-section="favorites">Favoritos</button><button class="tab" data-section="system">Sistema</button><button class="tab adminOnly hidden" data-section="users">Usuarios</button><button class="tab auditOnly hidden" data-section="audit">Auditoría</button></div>
+<section id="searchSec"><div class="grid"><div class="card"><h2 id="searchTitle">Buscar estaciones de servicio</h2><div class="formgrid"><div><label>1. Provincia</label><select id="province" class="field"></select></div><div><label>2. Municipio</label><input id="municipality" class="field" list="municipalityList" placeholder="Empieza a escribir..."><datalist id="municipalityList"></datalist></div><div id="fuelBox"><label>Combustible</label><select id="fuel" class="field"><option value="diesel">Gasóleo A</option><option value="gasolina95">Gasolina 95 E5</option><option value="gasolina98">Gasolina 98 E5</option><option value="diesel_plus">Gasóleo Premium</option><option value="glp">GLP</option><option value="gnc">GNC</option></select></div><div id="powerBox" class="hidden"><label>Potencia mínima</label><select id="minPower" class="field"><option value="0">Todas</option><option value="22">22 kW</option><option value="50">50 kW</option><option value="100">100 kW</option><option value="150">150 kW</option></select></div><div><label>Orden</label><select id="order" class="field"><option value="price">Precio · menor a mayor</option></select></div><div class="wide"><label id="freeLabel">Marca o dirección (opcional)</label><input id="freeText" class="field" placeholder="Ej. Repsol, Avenida..."></div></div><div class="actions searchToolbar">
+  <button id="searchBtn" class="primary">Buscar</button>
+  <button id="geoBtn">Usar mi ubicación</button>
+  <button id="clearBtn" type="button">Limpiar</button>
+</div><div id="searchStatus" class="status"></div><div id="searchErr" class="err hidden"></div></div><aside class="card"><h2>Resumen</h2><div id="summary" class="summary"></div></aside></div><div id="results" class="results"></div></section>
 <section id="favoritesSec" class="hidden"><div class="card"><h2>Favoritos</h2><div id="favorites"></div></div></section><section id="systemSec" class="hidden"><div class="card"><h2>Estado cloud</h2><div id="system"></div><div class="actions"><button id="changePass">Cambiar mi clave</button></div></div></section><section id="usersSec" class="hidden"><div class="card"><h2>Usuarios y accesos</h2><div class="formgrid"><div><label>Usuario nuevo</label><input id="newUser" class="field"></div><div><label>Rol</label><select id="newRole" class="field"><option>USUARIO</option><option>AUDITOR</option><option>ADMIN</option></select></div><div><label>Clave inicial</label><input id="newPass" class="field" placeholder="Vacío = automática"></div><div class="actions"><button id="createUser" class="primary">Crear</button></div></div><div id="usersTable"></div></div></section><section id="auditSec" class="hidden"><div class="card"><h2>Auditoría</h2><div id="auditTable"></div></div></section></main></div>
 <script>
 const $=id=>document.getElementById(id);
@@ -236,6 +318,36 @@ function selectedFuelLabel(){
     : 'Carburante';
 }
 
+function prettyConnector(v){
+  let s=String(v||'').trim();
+  if(!s)return 'N/D';
+  s=s.replace(/IEC_62196_T2_COMBO/gi,'CCS Combo 2')
+     .replace(/IEC_62196_T2/gi,'Tipo 2')
+     .replace(/CHADEMO/gi,'CHAdeMO')
+     .replace(/\bCABLE\b/gi,'')
+     .replace(/\bSOCKET\b/gi,'')
+     .replace(/\s*·\s*/g,' ')
+     .replace(/\s*\/\s*/g,' · ')
+     .replace(/\s{2,}/g,' ')
+     .replace(/\s+·\s+/g,' · ')
+     .trim();
+  return s||'N/D';
+}
+function tariffNumbers(v){
+  const out=[];
+  const rx=/(\d+[.,]\d{2,4})\s*(?:€|EUR)/gi;
+  for(const m of String(v||'').matchAll(rx)){
+    const n=Number(m[1].replace(',','.'));
+    if(Number.isFinite(n))out.push(n);
+  }
+  return out;
+}
+function hasTariffMismatch(r){
+  if(mode!=='electric'||!r.pricePublished||r.price===null||!r.tariffTexts)return false;
+  const nums=tariffNumbers(r.tariffTexts);
+  if(!nums.length)return false;
+  return !nums.some(n=>Math.abs(n-r.price)<0.006);
+}
 function renderResults(rows){
   let a=rows.map(normalizeRow);
 
@@ -246,7 +358,7 @@ function renderResults(rows){
       if(xp!==yp)return xp-yp;
       const xd=x.distance??Infinity,yd=y.distance??Infinity;
       if(xd!==yd)return xd-yd;
-      return String(x.name).localeCompare(String(y.name),'es');
+      return String(x.operator||x.name).localeCompare(String(y.operator||y.name),'es');
     });
   }else{
     a.sort((x,y)=>(x.price??Infinity)-(y.price??Infinity));
@@ -254,64 +366,94 @@ function renderResults(rows){
 
   displayRows=a;
   const fuelLabel=selectedFuelLabel();
+  if(!a.length){
+    $('results').innerHTML='<div class="card">Sin resultados con esos filtros.</div>';
+    return;
+  }
 
-  $('results').innerHTML=a.length?a.map((r,i)=>{
+  const listTitle=mode==='electric'
+    ? a.length+' puntos de recarga'
+    : a.length+' estaciones de servicio';
+  const listSub=mode==='electric'
+    ? 'Operador destacado · tarifa publicada primero · menor precio primero'
+    : fuelLabel+' · menor precio primero';
+
+  const header='<div class="resultListHeader"><h3>'+esc(listTitle)+'</h3><div class="sub">'+esc(listSub)+'</div></div>';
+
+  const cards=a.map((r,i)=>{
     const maps=r.mapsUrl || ((r.lat!=null&&r.lon!=null)
       ?'https://www.google.com/maps/search/?api=1&query='+r.lat+','+r.lon:'');
     const location=[r.address,r.locality,r.municipality,r.province]
       .filter(Boolean).filter((x,i,arr)=>arr.indexOf(x)===i).join(' · ');
-
-    let chips=[];
-    let details=[];
-    let priceHtml='';
+    const actions='<div class="resultActions">'+
+      (maps?'<a href="'+esc(maps)+'" target="_blank" rel="noopener"><button class="small primary">Abrir en Maps</button></a>':'')+
+      '<button class="small" onclick="saveFav('+i+')">Guardar favorito</button></div>';
 
     if(mode==='electric'){
-      chips.push('Producto: Recarga eléctrica');
-      chips.push(r.power!==null&&r.power>0?'Potencia: '+r.power+' kW':'Potencia: N/D');
-      chips.push(r.connectors?'Conector: '+r.connectors:'Conector: N/D');
-      if(r.availability)chips.push(r.availability);
-      if(r.operator)chips.push('Operador: '+r.operator);
-      if(r.source||r.sources)chips.push('Fuente: '+(r.source||r.sources));
-      if(r.tariffTexts)details.push('Tarifa: '+r.tariffTexts);
+      const operator=(r.operator||'Operador no informado').trim();
+      const ugly=/^CA[-_]/i.test(String(r.rawName||'')) || /^\d{8,}$/.test(String(r.rawName||''));
+      const site=ugly?'Punto de recarga':(r.name||'Punto de recarga');
+      const connector=prettyConnector(r.connectors);
+      const power=(r.power!==null&&r.power>0)?r.power+' kW':'N/D';
+      const tariff=r.tariffTexts||'No publicada por la fuente';
+      const state=r.availability||'Estado no informado';
+      const source=r.source||r.sources||'Fuente no informada';
+      const price=(r.pricePublished&&r.price!==null)
+        ?(r.priceFree?'Gratis · '+r.price.toFixed(3)+' €/kWh':r.price.toFixed(3)+' €/kWh')
+        :'Tarifa no publicada';
+      const priceClass=(r.pricePublished&&r.price!==null)?'good':'warn';
+      const mismatch=hasTariffMismatch(r)
+        ?'<div class="dataWarning">Aviso de datos: el precio resumen y el texto de tarifa contienen importes distintos. Revisa las condiciones de la fuente antes de decidir.</div>'
+        :'';
+      const ref=ugly?'<div class="sourceLine">Referencia técnica: '+esc(r.rawName)+'</div>':'';
 
-      if(r.pricePublished&&r.price!==null){
-        priceHtml=r.priceFree
-          ? 'Gratis · '+r.price.toFixed(3)+' €/kWh'
-          : r.price.toFixed(3)+' €/kWh';
-      }else{
-        priceHtml='Tarifa no publicada';
-      }
-    }else{
-      chips.push('Producto: '+fuelLabel);
-      if(r.schedule)details.push('Horario: '+r.schedule);
-      if(r.source)chips.push('Fuente: '+r.source);
-      priceHtml=r.price!==null
-        ? (r.priceText||r.price.toFixed(3)+' €/L')
-        : 'Precio no publicado';
+      return '<article class="result proResult evResult">'+
+        '<div class="resultMain">'+
+          '<div class="eyebrow">Operador</div>'+
+          '<div class="operatorHero">'+esc(operator)+'</div>'+
+          '<div class="siteName">'+esc(site)+'</div>'+
+          '<div class="locationLine">'+esc(location||'Ubicación no informada')+'</div>'+
+          '<div class="infoGrid">'+
+            '<div class="infoBox"><div class="infoLabel">Producto</div><div class="infoValue">Recarga eléctrica</div></div>'+
+            '<div class="infoBox"><div class="infoLabel">Potencia</div><div class="infoValue">'+esc(power)+'</div></div>'+
+            '<div class="infoBox"><div class="infoLabel">Conector</div><div class="infoValue">'+esc(connector)+'</div></div>'+
+            '<div class="infoBox"><div class="infoLabel">Estado</div><div class="infoValue">'+esc(state)+'</div></div>'+
+            '<div class="infoBox"><div class="infoLabel">Tarifa fuente</div><div class="infoValue">'+esc(tariff)+'</div></div>'+
+            '<div class="infoBox"><div class="infoLabel">Fuente</div><div class="infoValue">'+esc(source)+'</div></div>'+
+          '</div>'+
+          mismatch+ref+actions+
+        '</div>'+
+        '<div class="resultSide">'+
+          '<div><div class="priceLabel">Precio</div><div class="priceHero">'+esc(price)+'</div>'+
+          (r.distance!==null?'<div class="distanceHero">'+r.distance.toFixed(2)+' km</div>':'')+'</div>'+
+          '<span class="statePill '+priceClass+'">'+(r.pricePublished?'Tarifa publicada':'Sin tarifa publicada')+'</span>'+
+        '</div>'+
+      '</article>';
     }
 
-    const chipsHtml=chips.filter(Boolean)
-      .map(x=>'<span class="chip">'+esc(x)+'</span>').join('');
-    const detailsHtml=details.length
-      ? '<div class="status">'+details.map(esc).join(' · ')+'</div>'
-      : '';
-    const refHtml=(mode==='electric'&&r.technicalName)
-      ? '<div class="sub">Referencia técnica: '+esc(r.rawName)+'</div>'
-      : '';
+    const brand=r.brand||r.name||'Estación';
+    const source=r.source||'Fuente oficial';
+    const schedule=r.schedule||'No informado';
+    const price=r.price!==null?(r.priceText||r.price.toFixed(3)+' €/L'):'Precio no publicado';
+    return '<article class="result proResult fuelResult">'+
+      '<div class="resultMain">'+
+        '<div class="eyebrow">Marca / estación</div>'+
+        '<div class="operatorHero">'+esc(brand)+'</div>'+
+        '<div class="locationLine">'+esc(location||'Ubicación no informada')+'</div>'+
+        '<div class="infoGrid">'+
+          '<div class="infoBox"><div class="infoLabel">Producto</div><div class="infoValue">'+esc(fuelLabel)+'</div></div>'+
+          '<div class="infoBox"><div class="infoLabel">Horario</div><div class="infoValue">'+esc(schedule)+'</div></div>'+
+          '<div class="infoBox"><div class="infoLabel">Fuente</div><div class="infoValue">'+esc(source)+'</div></div>'+
+        '</div>'+
+        actions+
+      '</div>'+
+      '<div class="resultSide"><div><div class="priceLabel">Precio</div><div class="priceHero">'+esc(price)+'</div>'+
+      (r.distance!==null?'<div class="distanceHero">'+r.distance.toFixed(2)+' km</div>':'')+
+      '</div><span class="statePill good">'+esc(fuelLabel)+'</span></div>'+
+    '</article>';
+  }).join('');
 
-    return '<article class="result"><div>'+
-      '<div class="rname">'+esc(mode==='fuel'?(r.brand||r.name):r.name)+'</div>'+
-      '<div class="addr">'+esc(location)+'</div>'+
-      refHtml+
-      '<div class="chips">'+chipsHtml+'</div>'+
-      detailsHtml+
-      '<div class="actions">'+
-      (maps?'<a href="'+esc(maps)+'" target="_blank" rel="noopener"><button class="small primary">Abrir en Maps</button></a>':'')+
-      '<button class="small" onclick="saveFav('+i+')">Guardar favorito</button>'+
-      '</div></div><div><div class="price">'+esc(priceHtml)+'</div>'+
-      (r.distance!==null?'<div class="sub">'+r.distance.toFixed(2)+' km</div>':'')+
-      '</div></article>';
-  }).join(''):'<div class="card">Sin resultados con esos filtros.</div>';
+  $('results').innerHTML=header+cards;
 }
 
 function renderSummary(rows){
@@ -362,13 +504,24 @@ async function runSearch(){
   }
 
   const btn=$('searchBtn');
+  const originalText=btn.textContent;
+  const started=Date.now();
   btn.disabled=true;
+  btn.textContent='Buscando…';
   $('searchErr').classList.add('hidden');
   $('results').innerHTML='';
   $('summary').innerHTML='';
-  $('searchStatus').textContent=mode==='fuel'
-    ? 'Consultando precios oficiales de carburantes...'
-    : 'Consultando recarga, tarifas, conectores y potencia...';
+
+  const baseText=mode==='fuel'
+    ?'Consultando precios oficiales de carburantes'
+    :'Consultando operadores, tarifas, conectores y potencia';
+
+  const tick=()=>{
+    const sec=Math.max(0,Math.floor((Date.now()-started)/1000));
+    $('searchStatus').innerHTML='<span class="searchProgress">'+esc(baseText+' · '+sec+' s')+'</span>';
+  };
+  tick();
+  const timer=setInterval(tick,1000);
 
   try{
     const d=await api(
@@ -382,25 +535,28 @@ async function runSearch(){
     renderResults(current);
     renderSummary(current);
 
+    const elapsed=((Date.now()-started)/1000).toFixed(1);
     if(mode==='electric'){
       const aa=current.map(normalizeRow);
       const pub=aa.filter(x=>x.pricePublished&&x.price!==null).length;
       const pow=aa.filter(x=>x.power!==null&&x.power>0).length;
+      const ops=aa.filter(x=>String(x.operator||'').trim()).length;
       $('searchStatus').textContent=
-        'Ordenado: tarifas publicadas primero, de menor a mayor · '+
-        current.length+' resultados · '+pub+' con tarifa publicada · '+
-        pow+' con potencia informada';
+        current.length+' puntos · '+ops+' con operador · '+pub+
+        ' con tarifa publicada · '+pow+' con potencia · '+elapsed+' s';
     }else{
       $('searchStatus').textContent=
         current.length+' estaciones · '+selectedFuelLabel()+
-        ' · ordenadas de menor a mayor precio';
+        ' · menor precio primero · '+elapsed+' s';
     }
   }catch(e){
     $('searchErr').textContent=e.message;
     $('searchErr').classList.remove('hidden');
     $('searchStatus').textContent='';
   }finally{
+    clearInterval(timer);
     btn.disabled=false;
+    btn.textContent=originalText;
   }
 }
 
@@ -503,6 +659,61 @@ window.deleteUser=async id=>{
   }catch(e){alert(e.message)}
 };
 
+const GF_ZOOM_KEY='gf_ui_zoom_pct';
+const GF_DENSITY_KEY='gf_ui_density';
+let gfZoom=Number(localStorage.getItem(GF_ZOOM_KEY)||100);
+let gfCompact=localStorage.getItem(GF_DENSITY_KEY)==='compact';
+
+function clampZoom(v){
+  return Math.max(70,Math.min(150,Math.round(v/10)*10));
+}
+function applyUiZoom(v,save=true){
+  gfZoom=clampZoom(v);
+  document.body.style.zoom=String(gfZoom/100);
+  if($('zoomReset'))$('zoomReset').textContent=gfZoom+'%';
+  if(save)localStorage.setItem(GF_ZOOM_KEY,String(gfZoom));
+}
+function applyDensity(compact,save=true){
+  gfCompact=!!compact;
+  document.body.classList.toggle('compactMode',gfCompact);
+  if($('densityToggle'))$('densityToggle').textContent=gfCompact?'Cómoda':'Compacta';
+  if(save)localStorage.setItem(GF_DENSITY_KEY,gfCompact?'compact':'comfortable');
+}
+function initUiControls(){
+  applyUiZoom(gfZoom,false);
+  applyDensity(gfCompact,false);
+  $('zoomOut').addEventListener('click',()=>applyUiZoom(gfZoom-10));
+  $('zoomIn').addEventListener('click',()=>applyUiZoom(gfZoom+10));
+  $('zoomReset').addEventListener('click',()=>applyUiZoom(100));
+  $('densityToggle').addEventListener('click',()=>applyDensity(!gfCompact));
+  $('clearBtn').addEventListener('click',()=>{
+    $('freeText').value='';
+    $('minPower').value='0';
+    geo=null;
+    current=[];
+    displayRows=[];
+    $('results').innerHTML='';
+    $('summary').innerHTML='';
+    $('searchErr').classList.add('hidden');
+    $('searchStatus').textContent='Filtros secundarios limpiados.';
+  });
+  ['municipality','freeText'].forEach(id=>{
+    $(id).addEventListener('keydown',e=>{
+      if(e.key==='Enter'){e.preventDefault();runSearch();}
+    });
+  });
+  $('backTop').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+  window.addEventListener('scroll',()=>{
+    $('backTop').style.display=window.scrollY>500?'grid':'none';
+  },{passive:true});
+  document.addEventListener('keydown',e=>{
+    if(!e.altKey)return;
+    if(e.key==='+'||e.key==='='){e.preventDefault();applyUiZoom(gfZoom+10);}
+    if(e.key==='-'){e.preventDefault();applyUiZoom(gfZoom-10);}
+    if(e.key==='0'){e.preventDefault();applyUiZoom(100);}
+  });
+}
+
 function wire(){
   $('province').innerHTML='<option value="">Selecciona provincia</option>'+
     provinces.map(x=>'<option>'+esc(x)+'</option>').join('');
@@ -511,11 +722,12 @@ function wire(){
 
   $('loginBtn').type='button';
   $('loginBtn').addEventListener('click',doLogin);
-  $('loginBtn').dataset.handler='R6J';
+  $('loginBtn').dataset.handler='R6M';
   $('loginUser').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
   $('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
   $('logout').addEventListener('click',doLogout);
   $('changePass').addEventListener('click',forceChange);
+  initUiControls();
 
   document.querySelectorAll('#modeTabs .tab').forEach(b=>b.addEventListener('click',()=>{
     mode=b.dataset.mode;
@@ -566,7 +778,7 @@ function wire(){
     }catch(e){alert(e.message)}
   });
 
-  document.documentElement.dataset.gfJsReady='R6J';
+  document.documentElement.dataset.gfJsReady='R6M';
 }
 
 window.addEventListener('error',e=>{
@@ -580,4 +792,5 @@ window.addEventListener('unhandledrejection',e=>{
 wire();
 boot();
 
-</script></body></html>
+</script><button id="backTop" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
+</body></html>
