@@ -1,6 +1,6 @@
 <!doctype html>
-<!-- GEOFUEL360_STATIC_R6J -->
-<!-- GEOFUEL360_STATIC_R6J --><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><title>GeoFuel360</title><style>
+<!-- GEOFUEL360_STATIC_R6L -->
+<!-- GEOFUEL360_STATIC_R6L --><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#07111f"><title>GeoFuel360</title><style>
 :root{--bg:#07111f;--panel:#101d30;--line:#29415f;--text:#f5f7fb;--muted:#9dbbe0;--mint:#83ddb8;--danger:#ff9fa8}*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#07111f,#081524);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input,select{font:inherit}.hidden{display:none!important}.wrap{max-width:1180px;margin:auto;padding:18px}header{position:sticky;top:0;z-index:10;background:#07111ff0;border-bottom:1px solid var(--line);backdrop-filter:blur(10px)}.head{max-width:1180px;margin:auto;padding:12px 18px;display:flex;gap:12px;align-items:center}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,#82dec0,#79a7ff);display:grid;place-items:center;color:#082033;font-weight:900}.brand{font-weight:900;font-size:22px}.sub{font-size:12px;color:var(--muted)}.grow{flex:1}.badge{border:1px solid var(--line);border-radius:999px;padding:8px 12px;color:var(--muted)}.hero,.card{background:linear-gradient(135deg,#122135,#0e1a2b);border:1px solid var(--line);border-radius:22px;padding:22px;margin:16px 0}.hero h1{margin:0 0 8px;font-size:31px}.hero p{margin:0;color:var(--muted)}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.tab{border:1px solid var(--line);background:#0d1828;color:var(--muted);border-radius:999px;padding:10px 16px;cursor:pointer}.tab.on,.primary{background:var(--mint);color:#092014;border-color:transparent}.grid{display:grid;grid-template-columns:1fr 300px;gap:16px}.formgrid{display:grid;grid-template-columns:1.1fr 1.3fr 1.1fr 1fr;gap:12px}.wide{grid-column:1/-1}label{display:block;font-size:12px;font-weight:800;color:#a9c7ef;margin-bottom:6px;text-transform:uppercase}.field{width:100%;background:#0b1726;border:1px solid var(--line);color:var(--text);border-radius:13px;padding:13px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}button{border:1px solid var(--line);background:#203657;color:#fff;border-radius:13px;padding:12px 17px;font-weight:800;cursor:pointer}.primary{background:var(--mint);color:#092014}.danger{background:#4a2530;color:#ffd7dc}.small{padding:8px 11px;font-size:13px}.status{color:var(--muted);font-size:13px;margin-top:10px}.err{background:#3b2837;border:1px solid #805066;color:#ffdbe2;padding:12px;border-radius:12px;margin-top:10px}.results{display:grid;gap:12px}.result{background:#0f1c2e;border:1px solid var(--line);border-radius:18px;padding:17px;display:grid;grid-template-columns:1fr auto;gap:12px}.rname{font-size:17px;font-weight:900}.addr{color:#9fc2ec;font-size:13px;margin:4px 0}.price{font-size:20px;font-weight:900;color:var(--mint);text-align:right}.chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}.chip{border:1px solid var(--line);border-radius:999px;padding:5px 8px;font-size:11px;color:#bdd4f2}.summary{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.metric{background:#0b1726;border:1px solid var(--line);border-radius:15px;padding:14px}.metric b{font-size:20px}.loginShell{min-height:100vh;display:grid;place-items:center;padding:24px}.login{width:min(440px,100%);background:#101d30;border:1px solid var(--line);border-radius:24px;padding:28px}.login h1{margin:16px 0 4px}.login .field{margin:6px 0 14px}table{width:100%;border-collapse:collapse}td,th{padding:10px;border-bottom:1px solid var(--line);text-align:left}.notice{padding:12px;border-radius:12px;background:#13263c;color:#b9d4f6;margin:10px 0}@media(max-width:800px){.grid{grid-template-columns:1fr}.formgrid{grid-template-columns:1fr 1fr}.hero h1{font-size:26px}.summary{grid-template-columns:repeat(3,1fr)}}@media(max-width:520px){.wrap{padding:12px}.formgrid{grid-template-columns:1fr}.result{grid-template-columns:1fr}.price{text-align:left}.summary{grid-template-columns:1fr 1fr}.badge{display:none}}
 </style></head><body>
 <div id="loginView" class="loginShell"><div class="login"><div class="logo">GF</div><h1>GeoFuel360</h1><p class="sub">Cloud R6 · Supabase + GitHub Pages · acceso privado desde cualquier dispositivo</p><label>Usuario</label><input id="loginUser" class="field" autocomplete="username"><label>Clave</label><input id="loginPass" class="field" type="password" autocomplete="current-password"><button id="loginBtn" class="primary">Entrar</button><div id="loginMsg" class="status"></div></div></div>
@@ -22,8 +22,20 @@ function val(o,ks){
   return '';
 }
 function num(v){
-  const n=Number(String(v??'').replace(',','.'));
+  if(v===null||v===undefined)return null;
+  const s=String(v).trim().replace(',','.');
+  if(!s)return null;
+  const n=Number(s);
   return Number.isFinite(n)?n:null;
+}
+function boolish(v){
+  if(v===true||v===1)return true;
+  const s=String(v??'').trim().toLowerCase();
+  return ['true','1','yes','si','sí','gratis','free'].includes(s);
+}
+function listText(v){
+  if(Array.isArray(v))return v.filter(Boolean).map(String).join(' · ');
+  return v==null?'':String(v);
 }
 function token(){
   return sessionStorage.getItem('gf_token')||'';
@@ -34,9 +46,9 @@ function setLoginMsg(msg,isError=false){
   el.textContent=msg||'';
   el.style.color=isError?'#ffb8c0':'';
 }
-async function api(path,opt={}){
+async function api(path,opt={},timeoutMs=45000){
   const controller=new AbortController();
-  const timer=setTimeout(()=>controller.abort(),30000);
+  const timer=setTimeout(()=>controller.abort(),timeoutMs);
   try{
     const headers={'Content-Type':'application/json',...(opt.headers||{})};
     const t=token();
@@ -48,7 +60,9 @@ async function api(path,opt={}){
     if(!r.ok)throw new Error(d.error||('HTTP '+r.status));
     return d;
   }catch(e){
-    if(e&&e.name==='AbortError')throw new Error('Tiempo de espera agotado');
+    if(e&&e.name==='AbortError'){
+      throw new Error('La fuente ha tardado demasiado. Se agotó el tiempo de espera de la búsqueda.');
+    }
     throw e;
   }finally{
     clearTimeout(timer);
@@ -153,62 +167,181 @@ async function loadMunicipalities(){
 }
 
 function normalizeRow(r){
-  const price=num(val(r,['price','precio','precio_eur_kwh','precio_litro']));
+  const rawPrice=val(r,['price','precio','precio_eur_kwh','precio_litro']);
+  const parsedPrice=num(rawPrice);
+  const pubValue=(r.price_published!==undefined)?r.price_published:
+                 ((r.precio_publicado!==undefined)?r.precio_publicado:undefined);
+  const freeValue=(r.price_gratis!==undefined)?r.price_gratis:
+                  ((r.precio_gratis!==undefined)?r.precio_gratis:false);
+  const hasPublishedFlag=pubValue!==undefined;
+  const pricePublished=mode==='electric'
+    ? (boolish(pubValue)||boolish(freeValue)||(!hasPublishedFlag&&parsedPrice!==null))
+    : parsedPrice!==null;
+
   const lat=num(val(r,['latitude','lat','latitud']));
   const lon=num(val(r,['longitude','lon','lng','longitud']));
+  const rawName=val(r,['name','nombre','brand','rotulo','rótulo','operator','operador'])||'Punto';
+  const operator=val(r,['operator','operador']);
+  const address=val(r,['address','direccion','dirección']);
+  const municipality=val(r,['municipality','municipio','locality','localidad']);
+  const province=val(r,['province','provincia']);
+  const source=listText(val(r,['source','fuente','sources']));
+  const tariffTexts=listText(val(r,['tariff_texts','tarifas','tariff_text','price_text']));
+  const connectors=listText(val(r,['connectors','conectores']));
+  const power=num(val(r,['power_kw','potencia_kw','potencia_max_kw','max_power_kw','power']));
+  const technicalName=/^CA[-_]/i.test(String(rawName)) ||
+    (/^[A-Z]{2,5}[-_][A-Z0-9_-]{6,}$/i.test(String(rawName)) && !String(rawName).includes(' '));
+
+  let displayName=String(rawName);
+  if(mode==='electric'&&technicalName){
+    displayName=operator || (address?('Punto de recarga · '+address):
+      ('Punto de recarga'+(municipality?(' · '+municipality):'')));
+  }
+
   return{
     raw:r,
     id:val(r,['id','source_id','station_id','geoportal_id'])||('local-'+Math.random().toString(36).slice(2)),
-    name:val(r,['name','nombre','rotulo','operator','operador'])||'Punto',
-    address:val(r,['address','direccion','dirección']),
-    municipality:val(r,['municipality','municipio']),
-    province:val(r,['province','provincia']),
-    operator:val(r,['operator','operador']),
-    price,
-    power:num(val(r,['power_kw','potencia_kw','power'])),
-    connectors:val(r,['connectors','conectores']),
+    rawName:String(rawName),
+    technicalName,
+    name:displayName,
+    brand:val(r,['brand','rotulo','rótulo'])||displayName,
+    address,
+    municipality,
+    province,
+    locality:val(r,['locality','localidad']),
+    operator,
+    source,
+    sources:listText(r.sources),
+    price:pricePublished?parsedPrice:null,
+    rawPrice:parsedPrice,
+    pricePublished,
+    priceFree:boolish(freeValue) || (pricePublished&&parsedPrice===0&&/gratis|free/i.test(tariffTexts)),
+    priceText:val(r,['price_text','precio_texto']),
+    power,
+    connectors,
     availability:val(r,['availability','disponibilidad']),
+    tariffTexts,
+    schedule:val(r,['schedule','horario']),
+    product:val(r,['product','producto','fuel_name','combustible']),
     distance:num(val(r,['distance_km','distancia_km'])),
+    mapsUrl:val(r,['maps_url','mapsUrl']),
     lat,lon
   };
 }
 
+function selectedFuelLabel(){
+  const s=$('fuel');
+  return s&&s.selectedOptions&&s.selectedOptions[0]
+    ? s.selectedOptions[0].textContent.trim()
+    : 'Carburante';
+}
+
 function renderResults(rows){
   let a=rows.map(normalizeRow);
+
   if(mode==='electric'){
-    a.sort((x,y)=>(x.price??Infinity)-(y.price??Infinity)||(x.distance??Infinity)-(y.distance??Infinity));
+    a.sort((x,y)=>{
+      const xp=(x.pricePublished&&x.price!==null)?x.price:Infinity;
+      const yp=(y.pricePublished&&y.price!==null)?y.price:Infinity;
+      if(xp!==yp)return xp-yp;
+      const xd=x.distance??Infinity,yd=y.distance??Infinity;
+      if(xd!==yd)return xd-yd;
+      return String(x.name).localeCompare(String(y.name),'es');
+    });
   }else{
     a.sort((x,y)=>(x.price??Infinity)-(y.price??Infinity));
   }
+
   displayRows=a;
+  const fuelLabel=selectedFuelLabel();
+
   $('results').innerHTML=a.length?a.map((r,i)=>{
-    const unit=mode==='electric'?' EUR/kWh':' EUR/L';
-    const chips=[r.power?((r.power)+' kW'):'',r.availability,r.operator,r.connectors]
-      .filter(Boolean).map(x=>'<span class="chip">'+esc(x)+'</span>').join('');
-    const maps=(r.lat!=null&&r.lon!=null)
-      ?'https://www.google.com/maps/search/?api=1&query='+r.lat+','+r.lon:'';
-    return '<article class="result"><div><div class="rname">'+esc(r.name)+'</div>'+
-      '<div class="addr">'+esc([r.address,r.municipality,r.province].filter(Boolean).join(' · '))+'</div>'+
-      '<div class="chips">'+chips+'</div><div class="actions">'+
-      (maps?'<a href="'+maps+'" target="_blank" rel="noopener"><button class="small primary">Abrir en Maps</button></a>':'')+
-      '<button class="small" onclick="saveFav('+i+')">Guardar favorito</button></div></div>'+
-      '<div><div class="price">'+(r.price!=null?esc(r.price.toFixed(3)+unit):'Precio no publicado')+'</div>'+
-      (r.distance!=null?'<div class="sub">'+r.distance.toFixed(2)+' km</div>':'')+'</div></article>';
+    const maps=r.mapsUrl || ((r.lat!=null&&r.lon!=null)
+      ?'https://www.google.com/maps/search/?api=1&query='+r.lat+','+r.lon:'');
+    const location=[r.address,r.locality,r.municipality,r.province]
+      .filter(Boolean).filter((x,i,arr)=>arr.indexOf(x)===i).join(' · ');
+
+    let chips=[];
+    let details=[];
+    let priceHtml='';
+
+    if(mode==='electric'){
+      chips.push('Producto: Recarga eléctrica');
+      chips.push(r.power!==null&&r.power>0?'Potencia: '+r.power+' kW':'Potencia: N/D');
+      chips.push(r.connectors?'Conector: '+r.connectors:'Conector: N/D');
+      if(r.availability)chips.push(r.availability);
+      if(r.operator)chips.push('Operador: '+r.operator);
+      if(r.source||r.sources)chips.push('Fuente: '+(r.source||r.sources));
+      if(r.tariffTexts)details.push('Tarifa: '+r.tariffTexts);
+
+      if(r.pricePublished&&r.price!==null){
+        priceHtml=r.priceFree
+          ? 'Gratis · '+r.price.toFixed(3)+' €/kWh'
+          : r.price.toFixed(3)+' €/kWh';
+      }else{
+        priceHtml='Tarifa no publicada';
+      }
+    }else{
+      chips.push('Producto: '+fuelLabel);
+      if(r.schedule)details.push('Horario: '+r.schedule);
+      if(r.source)chips.push('Fuente: '+r.source);
+      priceHtml=r.price!==null
+        ? (r.priceText||r.price.toFixed(3)+' €/L')
+        : 'Precio no publicado';
+    }
+
+    const chipsHtml=chips.filter(Boolean)
+      .map(x=>'<span class="chip">'+esc(x)+'</span>').join('');
+    const detailsHtml=details.length
+      ? '<div class="status">'+details.map(esc).join(' · ')+'</div>'
+      : '';
+    const refHtml=(mode==='electric'&&r.technicalName)
+      ? '<div class="sub">Referencia técnica: '+esc(r.rawName)+'</div>'
+      : '';
+
+    return '<article class="result"><div>'+
+      '<div class="rname">'+esc(mode==='fuel'?(r.brand||r.name):r.name)+'</div>'+
+      '<div class="addr">'+esc(location)+'</div>'+
+      refHtml+
+      '<div class="chips">'+chipsHtml+'</div>'+
+      detailsHtml+
+      '<div class="actions">'+
+      (maps?'<a href="'+esc(maps)+'" target="_blank" rel="noopener"><button class="small primary">Abrir en Maps</button></a>':'')+
+      '<button class="small" onclick="saveFav('+i+')">Guardar favorito</button>'+
+      '</div></div><div><div class="price">'+esc(priceHtml)+'</div>'+
+      (r.distance!==null?'<div class="sub">'+r.distance.toFixed(2)+' km</div>':'')+
+      '</div></article>';
   }).join(''):'<div class="card">Sin resultados con esos filtros.</div>';
 }
 
 function renderSummary(rows){
   const a=rows.map(normalizeRow);
-  const prices=a.map(x=>x.price).filter(x=>x!=null);
-  const powers=a.map(x=>x.power).filter(x=>x!=null);
-  const cells=mode==='electric'
-    ?[[prices.length?Math.min(...prices).toFixed(3)+' €/kWh':'--','Más barato'],
-      [powers.length?Math.max(...powers).toFixed(1)+' kW':'--','Potencia máxima'],
-      [a.length,'Coincidencias']]
-    :[[prices.length?Math.min(...prices).toFixed(3)+' €/L':'--','Más barato'],
-      [prices.length?(prices.reduce((s,x)=>s+x,0)/prices.length).toFixed(3)+' €/L':'--','Media'],
-      [a.length,'Coincidencias']];
-  $('summary').innerHTML=cells.map(x=>'<div class="metric"><b>'+esc(x[0])+'</b><div class="sub">'+esc(x[1])+'</div></div>').join('');
+
+  if(mode==='electric'){
+    const published=a.filter(x=>x.pricePublished&&x.price!==null);
+    const prices=published.map(x=>x.price);
+    const powers=a.map(x=>x.power).filter(x=>x!==null&&x>0);
+    const cells=[
+      [prices.length?Math.min(...prices).toFixed(3)+' €/kWh':'--','Tarifa mínima publicada'],
+      [powers.length?Math.max(...powers).toFixed(1)+' kW':'--','Potencia máxima publicada'],
+      [published.length+' / '+a.length,'Tarifas publicadas'],
+      [a.length,'Coincidencias']
+    ];
+    $('summary').innerHTML=cells.map(x=>
+      '<div class="metric"><b>'+esc(x[0])+'</b><div class="sub">'+esc(x[1])+'</div></div>'
+    ).join('');
+    return;
+  }
+
+  const prices=a.map(x=>x.price).filter(x=>x!==null);
+  const cells=[
+    [prices.length?Math.min(...prices).toFixed(3)+' €/L':'--','Más barato'],
+    [prices.length?(prices.reduce((s,x)=>s+x,0)/prices.length).toFixed(3)+' €/L':'--','Media'],
+    [a.length,'Coincidencias']
+  ];
+  $('summary').innerHTML=cells.map(x=>
+    '<div class="metric"><b>'+esc(x[0])+'</b><div class="sub">'+esc(x[1])+'</div></div>'
+  ).join('');
 }
 
 async function runSearch(){
@@ -220,25 +353,54 @@ async function runSearch(){
     limit:80,
     ...(geo||{})
   };
+
   if(mode==='fuel'){
     const k=$('fuel').value;
     Object.assign(req,{fuel:k,fuelKey:k,product:k,productKey:k});
   }else{
     req.minPower=Number($('minPower').value||0);
   }
+
+  const btn=$('searchBtn');
+  btn.disabled=true;
   $('searchErr').classList.add('hidden');
-  $('searchStatus').textContent='Buscando...';
+  $('results').innerHTML='';
+  $('summary').innerHTML='';
+  $('searchStatus').textContent=mode==='fuel'
+    ? 'Consultando precios oficiales de carburantes...'
+    : 'Consultando recarga, tarifas, conectores y potencia...';
+
   try{
-    const d=await api('/api/search/'+mode,{method:'POST',body:JSON.stringify(req)});
+    const d=await api(
+      '/api/search/'+mode,
+      {method:'POST',body:JSON.stringify(req)},
+      180000
+    );
     const data=d.data||d;
     current=data.results||data.rows||data.data||[];
+
     renderResults(current);
     renderSummary(current);
-    $('searchStatus').textContent=(mode==='electric'?'Ordenado de menor a mayor coste · ':'')+current.length+' resultados';
+
+    if(mode==='electric'){
+      const aa=current.map(normalizeRow);
+      const pub=aa.filter(x=>x.pricePublished&&x.price!==null).length;
+      const pow=aa.filter(x=>x.power!==null&&x.power>0).length;
+      $('searchStatus').textContent=
+        'Ordenado: tarifas publicadas primero, de menor a mayor · '+
+        current.length+' resultados · '+pub+' con tarifa publicada · '+
+        pow+' con potencia informada';
+    }else{
+      $('searchStatus').textContent=
+        current.length+' estaciones · '+selectedFuelLabel()+
+        ' · ordenadas de menor a mayor precio';
+    }
   }catch(e){
     $('searchErr').textContent=e.message;
     $('searchErr').classList.remove('hidden');
     $('searchStatus').textContent='';
+  }finally{
+    btn.disabled=false;
   }
 }
 
